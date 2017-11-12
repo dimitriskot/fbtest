@@ -1,0 +1,201 @@
+.card__box {
+  width: 256px;
+  height: 480px;
+  margin: 0 auto;
+  padding-left: 49px;
+  padding-right: 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  font-family: "TrebuchetMS", "Arial", sans-serif;
+  color: #666666;
+
+  background: url("../img/foiegras-default.png") no-repeat center center;
+
+  cursor: pointer;
+}
+
+.card__input:hover ~ .card__label .card__box {
+  background: url("../img/foiegras-default-hover.png") no-repeat center center;
+}
+
+.card__input:checked ~ .card__label .card__box {
+  background: url("../img/foiegras-checked.png") no-repeat center center;
+}
+
+.card__input:checked:hover ~ .card__label .card__box {
+  background: url("../img/foiegras-checked-hover.png") no-repeat center center;
+}
+
+.card__input:disabled ~ .card__label .card__box {
+  color: rgba(179, 179, 179, 0.5);
+
+  background: url("../img/foiegras-disabled.png") no-repeat center center;
+
+  cursor: default;
+}
+
+.card__input:disabled ~ .card__label .card__title {
+  color: rgba(179, 179, 179, 0.5);
+}
+
+.card__pretitle {
+  margin: 0;
+  margin-top: 24px;
+  margin-bottom: 18px;
+  padding: 0;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: normal;
+}
+
+.card__pretitle--hover {
+  display: none;
+  color: #e62e7a;
+}
+
+.card__input:checked:hover ~ .card__label .card__pretitle--default {
+  display: none;
+}
+
+.card__input:checked:hover ~ .card__label .card__pretitle--hover {
+  display: block;
+}
+
+.card__title {
+  margin: 0;
+  margin-bottom: 16px;
+  padding: 0;
+  font-family: "TrebuchetMS-Bold", "Arial", sans-serif;
+  font-size: 48px;
+  line-height: 35px;
+  color: #000000;
+}
+
+.card__type {
+  font-size: 24px;
+  text-transform: lowercase;
+}
+
+.card__description {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.card__count {
+  font-weight: bold;
+}
+
+.card__weight-box {
+  width: 81px;
+  height: 81px;
+  margin-top: auto;
+  margin-left: auto;
+  margin-bottom: 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: #ffffff;
+
+  background-color: #1698d9;
+  border-radius: 50%;
+}
+
+.card__input:hover ~ .card__label .card__weight-box {
+  background-color: #2ea8e5;
+}
+
+.card__input:checked ~ .card__label .card__weight-box {
+  background-color: #d91667;
+}
+
+.card__input:checked:hover ~ .card__label .card__weight-box {
+  background-color: #e62e7a;
+}
+
+.card__input:disabled ~ .card__label .card__weight-box {
+  background-color: #b3b3b3;
+}
+
+.card__weight-count {
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+  margin-bottom: 6px;
+
+  font-size: 42px;
+  line-height: 22px;
+}
+
+.card__weight {
+  margin: 0;
+  padding: 0;
+
+  font-size: 21px;
+  line-height: 22px;
+}
+
+.card__text {
+  margin: 0 auto;
+  padding: 0;
+
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.card__text--disabled {
+  color: #ffff66;
+}
+
+.card__label {
+  margin-bottom: 14px;
+
+  display: flex;
+}
+
+.card__label--text {
+  margin: 0;
+  padding: 0;
+
+  display: inline;
+
+  color: #1698d9;
+
+  border-bottom: 1px dashed #1698d9;
+
+  cursor: pointer;
+}
+
+.card__text--checked,
+.card__text--disabled {
+  display: none;
+}
+
+.card__input:checked ~ .card__text--checked {
+  display: block;
+}
+
+.card__input:checked ~ .card__text--default {
+  display: none;
+}
+
+.card__input:disabled ~ .card__text--checked,
+.card__input:disabled ~ .card__text--default {
+  display: none;
+}
+
+.card__input:disabled ~ .card__text--disabled {
+  display: block;
+}
+
+.card__input:hover ~ .card__text .card__label--text {
+  color: #2ea8e5;
+  border-bottom-color: #2ea8e5;
+}
