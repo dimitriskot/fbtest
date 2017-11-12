@@ -2,18 +2,17 @@ body {
   outline: 2px solid rgb(235, 45, 45);;
   background-color: rgba(228, 70, 70, 0.5);
 }
-/*
-.product {
+
+.product__box {
   outline: 2px solid rgb(255, 136, 0);
   background-color: rgba(255, 136, 0, 0.5);
 }
 
-.product__title,
-.card {
+.product {
   outline: 2px solid rgb(0, 174, 255);
   background-color: rgba(0, 174, 255, 0.5);
 }
-
+/*
 .product__item {
   outline: 2px solid rgb(238, 255, 0);
   background-color: rgba(238, 255, 0, 0.5);
