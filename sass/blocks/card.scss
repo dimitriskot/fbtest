@@ -6,6 +6,7 @@
   width: 256px;
   height: 480px;
   margin: 0 auto;
+  margin-bottom: 14px;
   padding-left: 49px;
   padding-right: 15px;
 
@@ -20,19 +21,19 @@
   cursor: pointer;
 }
 
-.card__input:hover ~ .card__label .card__box {
+.card__input:hover ~ .card__box {
   background: url("../img/foiegras-default-hover.png") no-repeat center center;
 }
 
-.card__input:checked ~ .card__label .card__box {
+.card__input:checked ~ .card__box {
   background: url("../img/foiegras-checked.png") no-repeat center center;
 }
 
-.card__input:checked:hover ~ .card__label .card__box {
+.card__input:checked:hover ~ .card__box {
   background: url("../img/foiegras-checked-hover.png") no-repeat center center;
 }
 
-.card__input:disabled ~ .card__label .card__box {
+.card__input:disabled ~ .card__box {
   color: rgba(179, 179, 179, 0.5);
 
   background: url("../img/foiegras-disabled.png") no-repeat center center;
@@ -40,7 +41,7 @@
   cursor: default;
 }
 
-.card__input:disabled ~ .card__label .card__title {
+.card__input:disabled ~ .card__box .card__title {
   color: rgba(179, 179, 179, 0.5);
 }
 
@@ -59,11 +60,11 @@
   color: #e62e7a;
 }
 
-.card__input:checked:hover ~ .card__label .card__pretitle--default {
+.card__input:checked:hover ~ .card__box .card__pretitle--default {
   display: none;
 }
 
-.card__input:checked:hover ~ .card__label .card__pretitle--hover {
+.card__input:checked:hover ~ .card__box .card__pretitle--hover {
   display: block;
 }
 
@@ -96,6 +97,8 @@
 .card__weight-box {
   width: 81px;
   height: 81px;
+  margin: 0;
+  padding: 0;
   margin-top: auto;
   margin-left: auto;
   margin-bottom: 15px;
@@ -110,19 +113,19 @@
   border-radius: 50%;
 }
 
-.card__input:hover ~ .card__label .card__weight-box {
+.card__input:hover ~ .card__box .card__weight-box {
   background-color: #2ea8e5;
 }
 
-.card__input:checked ~ .card__label .card__weight-box {
+.card__input:checked ~ .card__box .card__weight-box {
   background-color: #d91667;
 }
 
-.card__input:checked:hover ~ .card__label .card__weight-box {
+.card__input:checked:hover ~ .card__box .card__weight-box {
   background-color: #e62e7a;
 }
 
-.card__input:disabled ~ .card__label .card__weight-box {
+.card__input:disabled ~ .card__box .card__weight-box {
   background-color: #b3b3b3;
 }
 
@@ -156,12 +159,6 @@
 
 .card__text--disabled {
   color: #ffff66;
-}
-
-.card__label {
-  margin-bottom: 14px;
-
-  display: flex;
 }
 
 .card__label--text {
