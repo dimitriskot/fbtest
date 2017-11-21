@@ -1,6 +1,5 @@
 .card {
   margin-bottom: 25px;
-  z-index: 3;
 }
 
 .card__box {
@@ -21,6 +20,10 @@
   color: #666666;
 
   background-color: #ffffff;
+  background-image: url("../img/cat.png");
+  background-repeat: no-repeat;
+  background-position: -27px 164px;
+
   border-left: 4px solid $default;
   border-right: 4px solid $default;
   border-bottom: 4px solid $default;
@@ -30,19 +33,7 @@
 
   cursor: pointer;
 
-  z-index: 4;
-}
-
-.card__image {
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 100%;
-  height: 266px;
-  background-image: url("../img/cat.png");
-  background-repeat: no-repeat;
-  background-position: -27px -3px;
-  /*z-index: 2;*/
+  z-index: 2;
 }
 
 .card__box::before {
@@ -71,7 +62,6 @@
   border-top: 4px solid $default;
   border-right: 4px solid $default;
   border-top-right-radius: 11px;
-
   z-index: -1;
 }
 
@@ -103,8 +93,8 @@
   cursor: default;
 }
 
-.card__input:disabled ~ .card__box .card__image {
-  opacity: 0.5;
+.card__input:disabled ~ .card__box {
+  background-image: url("../img/cat-disabled.png");
 }
 
 .card__input:disabled ~ .card__box .card__title,
@@ -120,7 +110,6 @@
   font-size: 16px;
   line-height: 16px;
   font-weight: normal;
-  /*z-index: 1;*/
 }
 
 .card__pretitle--hover {
@@ -145,6 +134,8 @@
   font-size: 48px;
   line-height: 35px;
   color: #000000;
+
+  z-index: -3;
 }
 
 .card__type {
@@ -184,8 +175,6 @@
 
   background-color: $default;
   border-radius: 50%;
-
-  /*z-index: 2;*/
 }
 
 .card__input:hover ~ .card__box .card__weight-box {
