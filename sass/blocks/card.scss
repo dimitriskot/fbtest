@@ -1,14 +1,18 @@
 .card {
   margin-bottom: 25px;
+  z-index: 3;
 }
 
 .card__box {
+  position: relative;
   width: 256px;
-  height: 480px;
+  height: 420px;
   margin: 0 auto;
+  margin-top: 45px;
   margin-bottom: 14px;
-  padding-left: 49px;
-  padding-right: 15px;
+  padding-left: 45px;
+  padding-right: 11px;
+  padding-bottom: 11px;
 
   display: flex;
   flex-direction: column;
@@ -16,30 +20,91 @@
   font-family: "TrebuchetMS", "Arial", sans-serif;
   color: #666666;
 
-  background: url("../img/foiegras-default.png") no-repeat center center;
+  background-color: #ffffff;
+  border-left: 4px solid $default;
+  border-right: 4px solid $default;
+  border-bottom: 4px solid $default;
+
+  border-bottom-left-radius: 11px;
+  border-bottom-right-radius: 11px;
 
   cursor: pointer;
+
+  z-index: 4;
 }
 
-.card__input:hover ~ .card__box {
-  background: url("../img/foiegras-default-hover.png") no-repeat center center;
+.card__image {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 266px;
+  background-image: url("../img/cat.png");
+  background-repeat: no-repeat;
+  background-position: -27px -3px;
+  /*z-index: 2;*/
 }
 
-.card__input:checked ~ .card__box {
-  background: url("../img/foiegras-checked.png") no-repeat center center;
+.card__box::before {
+  content: "";
+  position: absolute;
+  top: -45px;
+  left: 18.6px;
+  width: 45px;
+  height: 41px;
+  background-color: #ffffff;
+  border-top: 4px solid $default;
+  border-left: 4px solid $default;
+
+  transform: skewX(-45deg);
+  z-index: -1;
 }
 
-.card__input:checked:hover ~ .card__box {
-  background: url("../img/foiegras-checked-hover.png") no-repeat center center;
-  transition: none;
+.card__box::after {
+  content: "";
+  position: absolute;
+  top: -45px;
+  right: -4px;
+  width: 270px;
+  height: 41px;
+  background-color: #ffffff;
+  border-top: 4px solid $default;
+  border-right: 4px solid $default;
+  border-top-right-radius: 11px;
+
+  z-index: -1;
 }
 
-.card__input:disabled ~ .card__box {
+.card__input:hover ~ .card__box,
+.card__input:hover ~ .card__box::before,
+.card__input:hover ~ .card__box::after {
+  border-color: $default-hover;
+}
+
+.card__input:checked ~ .card__box,
+.card__input:checked ~ .card__box::before,
+.card__input:checked ~ .card__box::after {
+  border-color: $checked;
+}
+
+.card__input:checked:hover ~ .card__box,
+.card__input:checked:hover ~ .card__box::before,
+.card__input:checked:hover ~ .card__box::after {
+  border-color: $checked-hover;
+}
+
+.card__input:disabled ~ .card__box,
+.card__input:disabled ~ .card__box::before,
+.card__input:disabled ~ .card__box::after {
   color: rgba(179, 179, 179, 0.5);
 
-  background: url("../img/foiegras-disabled.png") no-repeat center center;
+  border-color: $disabled;
 
   cursor: default;
+}
+
+.card__input:disabled ~ .card__box .card__image {
+  opacity: 0.5;
 }
 
 .card__input:disabled ~ .card__box .card__title,
@@ -49,17 +114,18 @@
 
 .card__pretitle {
   margin: 0;
-  margin-top: 23px;
-  margin-bottom: 17px;
+  margin-top: -22px;
+  margin-bottom: 18px;
   padding: 0;
   font-size: 16px;
   line-height: 16px;
   font-weight: normal;
+  /*z-index: 1;*/
 }
 
 .card__pretitle--hover {
   display: none;
-  color: #e62e7a;
+  color: $checked-hover;
 }
 
 .card__input:checked:hover ~ .card__box .card__pretitle--default {
@@ -109,7 +175,6 @@
   padding: 0;
   margin-top: auto;
   margin-left: auto;
-  margin-bottom: 15px;
 
   display: flex;
   flex-direction: column;
@@ -117,20 +182,22 @@
 
   color: #ffffff;
 
-  background-color: #1698d9;
+  background-color: $default;
   border-radius: 50%;
+
+  /*z-index: 2;*/
 }
 
 .card__input:hover ~ .card__box .card__weight-box {
-  background-color: #2ea8e5;
+  background-color: $default-hover;
 }
 
 .card__input:checked ~ .card__box .card__weight-box {
-  background-color: #d91667;
+  background-color: $checked;
 }
 
 .card__input:checked:hover ~ .card__box .card__weight-box {
-  background-color: #e62e7a;
+  background-color: $checked-hover;
 }
 
 .card__input:disabled ~ .card__box .card__weight-box {
@@ -175,9 +242,9 @@
 
   display: inline;
 
-  color: #1698d9;
+  color: $default;
 
-  border-bottom: 1px dashed #1698d9;
+  border-bottom: 1px dashed $default;
 
   cursor: pointer;
 }
@@ -205,6 +272,6 @@
 }
 
 .card__input:hover ~ .card__text .card__label--text {
-  color: #2ea8e5;
-  border-bottom-color: #2ea8e5;
+  color: $default-hover;
+  border-bottom-color: $default-hover;
 }
