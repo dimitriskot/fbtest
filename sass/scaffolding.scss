@@ -21,18 +21,10 @@
 
 body {
   width: 100%;
-  min-height: calc(100vh - 290px);
+  /*min-height: 100vh;*/
   margin: 0 auto;
-  padding: 145px 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   font-family: "TrebuchetMS", "Arial", sans-serif;
-
-  background-image: linear-gradient(#000000 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, #000000 100%),
-  url("../img/pattern.png");
 }
 
 img {

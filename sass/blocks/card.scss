@@ -1,6 +1,6 @@
 .card {
   position: relative;
-  margin-bottom: 25px;
+  padding-bottom: 35px;
 }
 
 .card__wafer {
@@ -126,9 +126,9 @@
   border-color: $checked;
 }
 
-.card__input:checked:hover ~ .card__box,
-.card__input:checked:hover ~ .card__box::before,
-.card__input:checked:hover ~ .card__box::after {
+.card__input:checked:hover ~ .card__box--test,
+.card__input:checked:hover ~ .card__box--test::before,
+.card__input:checked:hover ~ .card__box--test::after {
   border-color: $checked-hover;
 }
 
@@ -167,11 +167,11 @@
   color: $checked-hover;
 }
 
-.card__input:checked:hover ~ .card__box .card__pretitle--default {
+.card__input:checked:hover ~ .card__box--test .card__pretitle--default {
   display: none;
 }
 
-.card__input:checked:hover ~ .card__box .card__pretitle--hover {
+.card__input:checked:hover ~ .card__box--test .card__pretitle--hover {
   display: block;
 }
 
@@ -239,7 +239,7 @@
   background-color: $checked;
 }
 
-.card__input:checked:hover ~ .card__box .card__weight-box {
+.card__input:checked:hover ~ .card__box--test .card__weight-box {
   background-color: $checked-hover;
 }
 
@@ -266,6 +266,9 @@
 }
 
 .card__text {
+  position: absolute;
+  left: 0;
+  right: 0;
   margin: 0 auto;
   padding: 0;
 

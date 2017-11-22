@@ -1,5 +1,6 @@
 .product {
   width: 320px;
+  height: auto;
   margin: 0 auto;
 
   display: flex;
@@ -29,7 +30,7 @@
 
 @media (min-width: $tablet-width) {
   .product {
-    width: 660px;
+    width: 950px;
   }
 
   .product__title {
