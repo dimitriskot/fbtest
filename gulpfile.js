@@ -19,6 +19,16 @@ var run = require("run-sequence");
 var del = require("del");
 
 gulp.task("style", function () {
+  gulp.src("sass/normalize.scss")
+    .pipe(plumber())
+    .pipe(sass())
+    .pipe(postcss([
+      autoprefixer()
+    ]))
+    .pipe(gulp.dest("build/css"))
+    .pipe(minifyCss())
+    .pipe(gulp.dest("build/css"))
+    .pipe(server.stream());
   gulp.src("sass/style.scss")
     .pipe(plumber())
     .pipe(sass())
@@ -64,20 +74,22 @@ gulp.task("html", function () {
     .pipe(server.stream());
 });
 
-gulp.task("minify", function() {
+gulp.task("minify", function () {
   return gulp.src('*.html')
     .pipe(posthtml([
       include()
     ]))
-    .pipe(minifyHtml({collapseWhitespace: true}))
+    .pipe(minifyHtml({
+      collapseWhitespace: true
+    }))
     .pipe(gulp.dest("build"));
 });
 
 gulp.task("compress", function (cb) {
   pump([
-        gulp.src("js/**.js"),
-        uglify(),
-        gulp.dest("build/js")
+      gulp.src("js/**.js"),
+      uglify(),
+      gulp.dest("build/js")
     ],
     cb
   );
@@ -110,13 +122,13 @@ gulp.task("build", function (done) {
 
 gulp.task("copy", function () {
   return gulp.src([
-    "fonts/**/*.{woff,woff2}",
-    "img/**",
-    "js/**"
-  ], {
-    base: "."
-  })
-  .pipe(gulp.dest("build"));
+      "fonts/**/*.{woff,woff2}",
+      "img/**",
+      "js/**"
+    ], {
+      base: "."
+    })
+    .pipe(gulp.dest("build"));
 });
 
 gulp.task("clean", function () {

@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.min.css">
-  <link rel="stylesheet" href="css/outline.css">
   <title>Нямушка</title>
 </head>
 
@@ -19,6 +19,9 @@
         <div class="product__box">
           <div class="product__item card">
             <input class="card__input visually-hidden" type="checkbox" name="food" id="foiegras">
+            <div class="card__wafer">
+              <div class="card__image"></div>
+            </div>
             <label class="card__box" for="foiegras">
               <span class="card__pretitle card__pretitle--default">
                 Сказочное заморское яство
@@ -34,7 +37,6 @@
                 <span class="card__count">10 </span>порций
                 <br>мышь в подарок
               </span>
-              <span class="card__image"></span>
               <span class="card__weight-box">
                 <span class="card__weight-count">0,5</span>
                 <span class="card__weight">кг</span>
@@ -53,6 +55,9 @@
           </div>
           <div class="product__item card">
             <input class="card__input visually-hidden" type="checkbox" name="food" id="fish">
+            <div class="card__wafer">
+              <div class="card__image"></div>
+            </div>
             <label class="card__box" for="fish">
               <span class="card__pretitle card__pretitle--default">
                 Сказочное заморское яство
@@ -69,7 +74,6 @@
                 <br>
                 <span class="card__count">2&nbsp;</span>мыши в подарок
               </span>
-              <span class="card__image"></span>
               <span class="card__weight-box">
                 <span class="card__weight-count">2</span>
                 <span class="card__weight">кг</span>
@@ -88,6 +92,9 @@
           </div>
           <div class="product__item card">
             <input class="card__input visually-hidden" type="checkbox" name="food" id="chicken" disabled>
+            <div class="card__wafer">
+              <div class="card__image"></div>
+            </div>
             <label class="card__box" for="chicken">
               <span class="card__pretitle card__pretitle--default">
                 Сказочное заморское яство
@@ -105,7 +112,6 @@
                 <span class="card__count">5&nbsp;</span>мышей в подарок
                 <br>заказчик доволен
               </span>
-              <span class="card__image"></span>
               <span class="card__weight-box">
                 <span class="card__weight-count">5</span>
                 <span class="card__weight">кг</span>
@@ -126,6 +132,41 @@
       </form>
     </section>
   </main>
+  <script>
+    var cardBoxes = document.querySelectorAll(".card__box");
+    var cardInputes = document.querySelectorAll(".card__input");
+    var cardLabels = document.querySelectorAll(".card__label");
+
+    for (var i = 0; i < cardBoxes.length; i++) {
+      cardBoxes[i].onclick = function () {
+        for (var j = 0; j < cardBoxes.length; j++) {
+          if (cardInputes[j].checked) {
+            cardBoxes[j].classList.remove("card__box--test");
+          };
+        };
+      };
+    }
+
+    for (var a = 0; a < cardBoxes.length; a++) {
+      cardBoxes[a].onmouseout = function () {
+        for (var b = 0; b < cardBoxes.length; b++) {
+          if (cardInputes[b].checked) {
+            cardBoxes[b].classList.add("card__box--test");
+          };
+        };
+      };
+    }
+
+    for (var x = 0; x < cardBoxes.length; x++) {
+      cardLabels[x].onmouseout = function () {
+        for (var y = 0; y < cardBoxes.length; y++) {
+          if (cardInputes[y].checked) {
+            cardBoxes[y].classList.add("card__box--test");
+          };
+        };
+      };
+    }
+  </script>
 </body>
 
 </html>
