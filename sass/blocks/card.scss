@@ -1,5 +1,63 @@
 .card {
+  position: relative;
   margin-bottom: 25px;
+}
+
+.card__wafer {
+  position: absolute;
+
+  top: 45px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 320px;
+  height: 435px;
+
+  background-color: #ffffff;
+
+  border-bottom-left-radius: 11px;
+  border-bottom-right-radius: 11px;
+
+  z-index: -2;
+}
+
+.card__wafer::before {
+  content: "";
+  position: absolute;
+  top: -44px;
+  left: 24px;
+  width: 45px;
+  height: 45px;
+  background-color: #ffffff;
+
+  transform: skewX(-45deg);
+}
+
+.card__wafer::after {
+  content: "";
+  position: absolute;
+  top: -44px;
+  right: 0;
+  width: 274px;
+  height: 45px;
+  background-color: #ffffff;
+  border-top-right-radius: 11px;
+}
+
+.card__image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  height: 272px;
+
+  background-image: url("../img/cat.png");
+  background-repeat: no-repeat;
+  background-position-x: -24px;
+
+  border-bottom-left-radius: 11px;
+  border-bottom-right-radius: 11px;
 }
 
 .card__box {
@@ -19,10 +77,7 @@
   font-family: "TrebuchetMS", "Arial", sans-serif;
   color: #666666;
 
-  background-color: #ffffff;
-  background-image: url("../img/cat.png");
-  background-repeat: no-repeat;
-  background-position: -27px 164px;
+  background-color: transparent;
 
   border-left: 4px solid $default;
   border-right: 4px solid $default;
@@ -32,8 +87,6 @@
   border-bottom-right-radius: 11px;
 
   cursor: pointer;
-
-  z-index: 2;
 }
 
 .card__box::before {
@@ -43,12 +96,10 @@
   left: 18.6px;
   width: 45px;
   height: 41px;
-  background-color: #ffffff;
   border-top: 4px solid $default;
   border-left: 4px solid $default;
 
   transform: skewX(-45deg);
-  z-index: -1;
 }
 
 .card__box::after {
@@ -58,11 +109,9 @@
   right: -4px;
   width: 270px;
   height: 41px;
-  background-color: #ffffff;
   border-top: 4px solid $default;
   border-right: 4px solid $default;
   border-top-right-radius: 11px;
-  z-index: -1;
 }
 
 .card__input:hover ~ .card__box,
@@ -93,8 +142,8 @@
   cursor: default;
 }
 
-.card__input:disabled ~ .card__box {
-  background-image: url("../img/cat-disabled.png");
+.card__input:disabled ~ .card__wafer .card__image {
+  opacity: 0.5;
 }
 
 .card__input:disabled ~ .card__box .card__title,
@@ -110,6 +159,7 @@
   font-size: 16px;
   line-height: 16px;
   font-weight: normal;
+  z-index: -1;
 }
 
 .card__pretitle--hover {
@@ -135,7 +185,7 @@
   line-height: 35px;
   color: #000000;
 
-  z-index: -3;
+  z-index: -1;
 }
 
 .card__type {
@@ -146,6 +196,7 @@
   font-family: "TrebuchetMS-Bold", "Arial", sans-serif;
   color: #000000;
   text-transform: lowercase;
+  z-index: -1;
 }
 
 .card__description {
@@ -153,6 +204,7 @@
   padding: 0;
   font-size: 14px;
   line-height: 16px;
+  z-index: -1;
 }
 
 .card__count {
@@ -175,9 +227,11 @@
 
   background-color: $default;
   border-radius: 50%;
+
+  z-index: -1;
 }
 
-.card__input:hover ~ .card__box .card__weight-box {
+.card__input:hover ~ .card__box > .card__weight-box {
   background-color: $default-hover;
 }
 
