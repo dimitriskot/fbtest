@@ -87,10 +87,8 @@
   border-bottom-right-radius: 11px;
 
   cursor: pointer;
-}
 
-.card__box:active {
-  background-color: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .card__box::before {
