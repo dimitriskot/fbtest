@@ -87,8 +87,10 @@
   border-bottom-right-radius: 11px;
 
   cursor: pointer;
+}
 
-  outline: none;
+.card__box:active {
+  background-color: none;
 }
 
 .card__box::before {
