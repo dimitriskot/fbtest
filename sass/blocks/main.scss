@@ -1,0 +1,38 @@
+.main {
+  color: #ffffff;
+}
+
+.main__link {
+  display: flex;
+  width: 190px;
+  height: 40px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.0);
+}
+
+.main__link:hover {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid #ffffff;
+}
+
+.main__link:active {
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.main__link--disabled {
+  color: #979797
+}
+
+.main__cell {
+  min-width: 200px;
+  height: 50px;
+  text-align: center;
+}
